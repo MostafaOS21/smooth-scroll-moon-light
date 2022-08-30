@@ -1,0 +1,168 @@
+:root {
+  --white: #ececec;
+  --black: rgb(5 8 19);
+  --pink: rgb(165 83 157);
+  --trans-time: 0.1s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--black);
+  overflow-x: hidden;
+  background-image: url(imgs/stars.webp);
+  position: relative;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 100px;
+  color: var(--white);
+}
+
+nav .logo {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 1439px) {
+  nav {
+    justify-content: center;
+  }
+  ul {
+    display: none;
+  }
+}
+
+ul li {
+  cursor: pointer;
+  padding: 8px 28px;
+  border-radius: 20px;
+  transition: color var(--trans-time) ease-in-out,
+    background-color var(--trans-time) ease-in-out;
+}
+
+ul li:hover {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+/* Section */
+
+section {
+  position: relative;
+  height: 800px;
+  overflow: hidden;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  background-color: var(--pink);
+}
+
+section div {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  transition: left var(--trans-time), bottom var(--trans-time),
+    top var(--trans-time);
+}
+
+section .moon {
+  transform: translate(-60%, -50px);
+  z-index: 1;
+}
+
+section .river {
+  bottom: 60px;
+  z-index: 2;
+}
+
+section .ship {
+  z-index: 3;
+  left: 20%;
+  bottom: 220px;
+}
+
+section .ship img {
+  width: 900px;
+}
+
+section .mount-1 {
+  z-index: 4;
+  bottom: -180px;
+}
+
+section .mount-2 {
+  z-index: 5;
+  bottom: -250px;
+  position: relative;
+}
+
+section .mount-2::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  height: 250%;
+  background-color: var(--pink);
+  bottom: -230%;
+}
+
+@media (max-width: 1439px) {
+  section .ship {
+    bottom: 250px;
+  }
+  section .ship img {
+    width: 500px;
+  }
+  section .moon {
+    transform: translate(-70%, -50px);
+  }
+}
+
+@media (max-width: 450px) {
+  section .moon {
+    transform: translate(-190%, -50px);
+  }
+}
+
+/* Footer */
+
+footer {
+  padding-top: 85px;
+  background: linear-gradient(var(--pink) 0%, var(--black) 10%);
+  color: var(--white);
+}
+
+footer h2 {
+  text-align: center;
+  font-size: 45px;
+  margin: 30px;
+}
+
+footer p {
+  padding: 8px 50px;
+  font-size: 18px;
+}
